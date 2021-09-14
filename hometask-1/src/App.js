@@ -4,7 +4,7 @@ import CounterType2 from './counterType2/counterType2'
 import CounterType3 from './counterType3/counterType3'
 import CounterType4 from './counterType4/counterType4'
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
