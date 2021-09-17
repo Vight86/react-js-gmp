@@ -2,9 +2,11 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    static: './dist',
     hot: true,
     open: true,
+  },
+  optimization: {
+    minimize: true,
   },
   module: {
     rules: [

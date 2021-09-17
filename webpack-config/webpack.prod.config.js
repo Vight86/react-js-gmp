@@ -2,10 +2,17 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  devtool: 'source-map',
+  devtool: false,
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin(),
+    ],
+  },
   module: {
     rules: [
       {
