@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --env mode=development"
+    "dev": "webpack serve --env mode=development",
+    "prod": "webpack --env mode=production"
   },
   "repository": {
     "type": "git",
@@ -19,13 +20,15 @@
     "autoprefixer": "^10.3.4",
     "postcss-autoreset": "^3.0.4",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "webpack-merge": "^5.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
     "babel-loader": "^8.2.2",
+    "css-loader": "^6.2.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.24.2",
@@ -35,6 +38,11 @@
     "html-webpack-plugin": "^5.3.2",
     "image-minimizer-webpack-plugin": "^2.2.0",
     "mini-css-extract-plugin": "^2.3.0",
+    "postcss": "^8.3.6",
+    "postcss-loader": "^6.1.1",
+    "sass": "^1.41.1",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
     "webpack": "^5.52.1",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.2.0"
