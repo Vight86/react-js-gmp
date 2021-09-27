@@ -1,0 +1,35 @@
+@use '../../scss/variables';
+
+.header {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  display: block;
+  background: url("header_bgr.png") center no-repeat;
+  background-size: cover;
+  padding-top: 1.5em;
+  padding-bottom: 15em;
+  margin-bottom: 1em;
+
+  &__top {
+    width: 100%;
+    max-width: variables.$containerWidth;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto 3.5em;
+  }
+
+  &__bottom {
+    width: 100%;
+    max-width: 96em;
+    font-size: inherit;
+    font-family: inherit;
+    margin: 0 auto;
+    padding: 0 2em;
+    display: block;
+  }
+}

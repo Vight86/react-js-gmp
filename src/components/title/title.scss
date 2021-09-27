@@ -1,0 +1,11 @@
+@use '../../scss/variables';
+
+.primary {
+  font-family: inherit;
+  color: variables.$color-fivefold;
+  font-size: 4em;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+}
