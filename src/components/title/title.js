@@ -1,9 +1,9 @@
 import s from './title.scss';
 
-const Title = ({ title }) => (<h1 className={s.primary}>{title}</h1>);
+const Title = ({ children }) => (<h1 className={s.primary}>{children}</h1>);
 
 Title.propTypes = {
-  title: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
 };
 
 export default Title;

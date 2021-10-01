@@ -9,13 +9,14 @@ const Header = () => (
     <div className={s.header__top}>
       <Logo />
       <Button
-        text="+add movie"
         theme="tertiary"
         isWide={false}
-      />
+      >
+        +add movie
+      </Button>
     </div>
     <div className={s.header__bottom}>
-      <Title title="Find your movie" />
+      <Title>Find your movie</Title>
       <SearchForm />
     </div>
 

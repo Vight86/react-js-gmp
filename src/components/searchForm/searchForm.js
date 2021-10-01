@@ -9,10 +9,11 @@ const SearchForm = () => (
       theme="primary"
     />
     <Button
-      text="Search"
       theme="primary"
       isWide
-    />
+    >
+      Search
+    </Button>
   </div>
 );
 

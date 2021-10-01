@@ -7,31 +7,15 @@ const MovieList = () => (
   <main className={s.movieList}>
     <header className={s.movieList__header}>
       <nav>
-        <Button
-          theme="navigation"
-          isWide={false}
-          text="All"
-        />
-        <Button
-          theme="navigation"
-          isWide={false}
-          text="Documentary"
-        />
-        <Button
-          theme="navigation"
-          isWide={false}
-          text="Comedy"
-        />
-        <Button
-          theme="navigation"
-          isWide={false}
-          text="Horror"
-        />
-        <Button
-          theme="navigation"
-          isWide={false}
-          text="Crime"
-        />
+        {['All', 'Documentary', 'Comedy', 'Horror', 'Crime'].map((text) => (
+          <Button
+            key={text}
+            theme="navigation"
+            isWide={false}
+          >
+            {text}
+          </Button>
+        ))}
       </nav>
       <SelectButton />
     </header>
