@@ -1,0 +1,14 @@
+@use 'scss/fonts';
+@use 'scss/variables';
+
+html {
+  font-size: 62.5%;
+  line-height: 1;
+}
+
+body {
+  font-size: inherit;
+  line-height: 1;
+  font-family: variables.$font-primary;
+  background: variables.$color-tertiary;
+}

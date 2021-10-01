@@ -1,0 +1,118 @@
+@use '../../scss/variables';
+
+.selectButton {
+  font-family: variables.$font-primary;
+  font-size: 1rem;
+
+  &__label {
+    display: inline;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6em;
+    font-family: inherit;
+    letter-spacing: 0.888889px;
+    text-transform: uppercase;
+    color: variables.$color-fivefold;
+    opacity: 0.6;
+  }
+
+  &__options {
+    position: absolute;
+    top: 2.5em;
+    left: 0;
+    padding-top: 0.7em;
+    width: 100%;
+    font-family: inherit;
+    font-size: 1em;
+    color: variables.$color-fivefold;
+    list-style: none;
+    text-transform: uppercase;
+    background-color: variables.$color-tertiary;
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: all 0.3s;
+
+    & > li {
+      display: block;
+      font-size: inherit;
+      font-family: inherit;
+      color: inherit;
+      padding: 0.5em 0.1em 0.5em 0.7em;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      visibility: inherit;
+
+      &:hover {
+        cursor: pointer;
+        color: variables.$color-primary;
+      }
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 0.4em;
+    right: 0;
+    font-size: inherit;
+    width: 0.7em;
+    height: 0.4em;
+    display: block;
+    background-image: url("arrow.svg");
+    background-repeat: no-repeat;
+    transform-origin: center center;
+    transition: all 0.3s;
+  }
+
+  &__selected {
+    position: relative;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.6em;
+    letter-spacing: 0.888889px;
+    text-transform: uppercase;
+    font-family: inherit;
+    color: variables.$color-fivefold;
+    margin-left: 2em;
+    padding-right: 1.9em;
+    display: inline-block;
+    cursor: pointer;
+
+    &_active {
+      .selectButton__options {
+        position: absolute;
+        top: 2.5em;
+        left: 0;
+        padding-top: 0.7em;
+        width: 100%;
+        font-family: inherit;
+        font-size: 1em;
+        color: variables.$color-fivefold;
+        list-style: none;
+        text-transform: uppercase;
+        background-color: variables.$color-tertiary;
+        z-index: 2000;
+        transition: all 0.3s;
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .selectButton__arrow {
+        position: absolute;
+        top: 0.4em;
+        right: 0;
+        font-size: inherit;
+        width: 0.7em;
+        height: 0.4em;
+        display: block;
+        background-image: url("arrow.svg");
+        background-repeat: no-repeat;
+        transform-origin: center center;
+        transition: all 0.3s;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
