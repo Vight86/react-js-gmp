@@ -1,0 +1,26 @@
+@use '../../scss/variables';
+
+.errorWrapper {
+  width: 50%;
+  margin: 2em auto;
+  text-align: center;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.errorTitle {
+  margin-bottom: 1em;
+  color: variables.$color-primary;
+  font-size: 3em;
+  line-height: normal;
+  font-family: inherit;
+  display: block;
+}
+
+.errorText {
+  color: variables.$color-fivefold;
+  font-size: 1.8em;
+  line-height: normal;
+  display: block;
+  font-family: inherit;
+}

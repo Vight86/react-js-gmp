@@ -1,0 +1,120 @@
+@use '../../scss/variables';
+
+.movieInfoHeader {
+  max-width: variables.$containerWidth;
+  padding: 0 2em;
+  font-size: 1rem;
+  margin: 0 auto;
+  display: block;
+
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 3.5em;
+  padding-bottom: 3em;
+  font-size: inherit;
+}
+
+.movieInfo {
+  font-family: variables.$font-primary;
+  font-size: 1rem;
+  padding: 0 2em;
+  display: grid;
+  grid-template-columns: minmax(35%, 325px) auto auto;
+  grid-template-rows: auto auto auto 1fr;
+  grid-template-areas:
+    "poster title rating"
+    "poster genre genre"
+    "poster year year"
+    "poster description description";
+  box-sizing: border-box;
+  margin-bottom: 2em;
+
+  @media screen and (max-width: variables.$bp-large) {
+    font-size: 0.8rem;
+  }
+
+  @media screen and (max-width: variables.$bp-small) {
+    width: 100%;
+    grid-template-columns: 90% auto;
+    grid-template-areas:
+    "poster poster"
+    "title rating"
+    "genre genre"
+    "year year"
+    "description description";
+  }
+}
+
+.poster {
+  grid-area: poster;
+  font-size: 1rem;
+  margin-right: 5em;
+
+  & > img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: variables.$bp-small) {
+    margin-right: 0;
+    margin-bottom: 2em;
+  }
+}
+
+.title {
+  grid-area: title;
+}
+
+.rating {
+  margin-top: -0.4em;
+  font-family: inherit;
+  font-size: 2em;
+  width: 3em;
+  height: 3em;
+  line-height: 3em;
+  color: variables.$color-fivefold;
+  grid-area: rating;
+  border: 1px solid variables.$color-fivefold;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.genre {
+  grid-area: genre;
+  margin-top: 1em;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.4em;
+  color: variables.$color-fivefold;
+  opacity: 0.5;
+}
+
+.year, .time {
+  margin-top: 1.3em;
+  grid-area: year;
+  color: variables.$color-primary;
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 2.4em;
+}
+
+.time {
+  margin-left: 4.2em;
+}
+
+.description {
+  margin-top: 1.5em;
+  grid-area: description;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 2em;
+  line-height: 1.2;
+  color: variables.$color-fivefold;
+  opacity: 0.5;
+}

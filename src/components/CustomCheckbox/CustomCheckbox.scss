@@ -1,0 +1,40 @@
+@use '../../scss/variables';
+
+.primary {
+  font-family: inherit;
+  font-size: inherit;
+
+  .label {
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    font-family: inherit;
+    color: variables.$color-fivefold;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 0.8em;
+      height: 0.8em;
+      background: variables.$color-fivefold;
+      border: 1px solid #E6E8ED;
+      box-sizing: border-box;
+      border-radius: 2px;
+      margin-right: 0.35em;
+    }
+  }
+
+  input {
+    display: none;
+
+    &:checked + .label {
+      &::before {
+        background:
+          url("checkMark.svg") center no-repeat,
+          #E64C5A;
+        border: 1px solid #E64C5A;
+      }
+    }
+  }
+}

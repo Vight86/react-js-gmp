@@ -1,0 +1,14 @@
+@use '../../scss/variables';
+
+.moviePopup {
+  position: relative;
+  background-color: variables.$color-tertiary;
+  width: 90%;
+  max-width: 97em;
+  margin: auto;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 6em;
+  box-sizing: border-box;
+  z-index: 5000;
+}

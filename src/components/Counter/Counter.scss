@@ -1,0 +1,19 @@
+@use '../../scss/variables';
+
+.counter {
+  display: block;
+  font-family: inherit;
+  font-size: 2rem;
+  color: variables.$color-fivefold;
+  font-weight: 400;
+  margin-bottom: 1.5em;
+
+  .bold {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    font-weight: 600;
+  }
+}
+
+

@@ -1,0 +1,65 @@
+@use '../../scss/variables';
+
+.primary {
+  width: 100%;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.6em;
+  color: variables.$color-primary;
+  letter-spacing: 0.888889px;
+  text-transform: uppercase;
+
+  input {
+    width: 100%;
+    display: block;
+    border-radius: 0.32em;
+    font-size: 1.25em;
+    height: 3.1em;
+    font-family: inherit;
+    font-weight: 400;
+    color: variables.$color-fivefold;
+    padding: 0 1em;
+    transition: all .3s;
+    border: 0.125em solid transparent;
+    background-color: transparentize(variables.$color-secondary, 0.4);
+    box-sizing: border-box;
+
+    &:focus {
+      border: 0.125em solid variables.$color-primary;
+    }
+
+     &[type="date"]  {
+        &::-webkit-calendar-picker-indicator {
+          margin-top: 0.8em;
+          background: url("datePickerIcon.svg") no-repeat
+        }
+
+        &::-webkit-datetime-edit {
+          line-height: 2.7em;
+        }
+      }
+  }
+
+  &_withLabel {
+    input {
+      margin-top: 0.7em;
+    }
+  }
+
+
+
+
+}
+
+.error {
+  position: absolute;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.4em;
+  color: variables.$color-primary;
+  opacity: 0.8;
+  bottom: -1.7em;
+  left: 0;
+}
