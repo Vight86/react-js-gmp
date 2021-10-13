@@ -15,6 +15,11 @@ module.exports = {
   rules: {
     'react/jsx-max-props-per-line': [1, { maximum: 1, when: 'always' }],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'jsx-a11y/label-has-associated-control': [2, {
+      required: {
+        some: ['nesting', 'id'],
+      },
+    }],
   },
   globals: {
     React: 'readonly',

@@ -1,0 +1,64 @@
+@use '../../scss/variables';
+
+.modal {
+  margin: auto;
+  font-family: inherit;
+  font-size: inherit;
+  text-align: center;
+  padding: 6em 8em 7em;
+  position: relative;
+  background-color: variables.$color-tertiary;
+  width: 90%;
+  max-width: 68.6em;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  .text {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2em;
+    line-height: 1.2;
+    text-align: left;
+    color: variables.$color-fivefold;
+    margin-top: 1.5em;
+  }
+
+  &_center {
+    align-items: center;
+    padding: 6em 8em 5.7em;
+
+    .text {
+      text-align: center;
+      width: 15em;
+    }
+  }
+
+  @media screen and (max-width: variables.$bp-small) {
+    font-size: 0.8rem;
+  }
+
+  @media screen and (max-width: variables.$bp-extra-small) {
+    font-size: 0.6rem;
+  }
+}
+
+.modalSuccessIcon {
+  font-size: inherit;
+  width: 6.6em;
+  height: 6.6em;
+  background: url("modalSuccessIcon.svg") center no-repeat;
+  margin-top: -2em;
+  margin-bottom: 3em;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.button {
+  font-family: inherit;
+  font-size: inherit;
+  align-self: end;
+  margin-top: 5em;
+}
+

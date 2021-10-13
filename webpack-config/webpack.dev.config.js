@@ -4,6 +4,9 @@ module.exports = {
   devServer: {
     hot: true,
     open: true,
+    client: {
+      overlay: false,
+    },
   },
   optimization: {
     minimize: true,
