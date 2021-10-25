@@ -1,8 +1,8 @@
-import SearchForm from '../SearchForm/SearchForm';
 import s from './Header.scss';
 import Logo from '../Logo/Logo';
 import Button from '../Button/Button';
 import Title from '../Title/Title';
+import SearchFormContainer from '../SearchForm/searchFormContainer';
 
 const Header = ({ openMoviePopup }) => {
   const handleAddButtonClick = () => openMoviePopup('Add movie');
@@ -20,7 +20,7 @@ const Header = ({ openMoviePopup }) => {
       </div>
       <div className={s.header__bottom}>
         <Title>Find your movie</Title>
-        <SearchForm />
+        <SearchFormContainer />
       </div>
     </header>
   );

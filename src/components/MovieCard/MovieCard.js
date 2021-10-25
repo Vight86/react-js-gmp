@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import classNames from 'classnames';
 import { useState } from 'react';
 import s from './MovieCard.scss';
@@ -19,7 +20,7 @@ const MovieCard = ({
   });
 
   const {
-    title, poster, genre, year,
+    title, release_date, poster_path, genres,
   } = movie;
 
   const handleEditMovieButtonClick = () => {
@@ -31,7 +32,6 @@ const MovieCard = ({
   };
 
   const handleMovieTitleClick = () => {
-    console.log(movie);
     openMovieInfo(movie);
   };
 
@@ -61,7 +61,7 @@ const MovieCard = ({
       </div>
       <figure className={s.poster}>
         <img
-          src={poster}
+          src={poster_path}
           alt={title}
         />
       </figure>
@@ -73,8 +73,8 @@ const MovieCard = ({
       >
         {title}
       </h3>
-      <p className={s.genre}>{genre}</p>
-      <p className={s.year}>{year}</p>
+      <p className={s.genre}>{genres.join(', ')}</p>
+      <p className={s.year}>{new Date(release_date).getFullYear()}</p>
     </div>
   );
 };

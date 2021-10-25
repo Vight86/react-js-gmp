@@ -17,16 +17,20 @@
     "url": "https://github.com/Vight86/react-js-gmp/issues"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.6.2",
     "autoprefixer": "^10.3.4",
+    "babel-polyfill": "^6.26.0",
     "classnames": "^2.3.1",
     "postcss-autoreset": "^3.0.4",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.5",
     "webpack-merge": "^5.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
+    "@babel/plugin-transform-runtime": "^7.15.8",
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
     "babel-loader": "^8.2.2",

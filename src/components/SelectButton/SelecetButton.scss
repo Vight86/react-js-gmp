@@ -34,7 +34,7 @@
     transform: translateY(-50%);
     transition: all 0.3s;
 
-    & li {
+    & li > button {
       display: block;
       font-size: inherit;
       font-family: inherit;
@@ -157,7 +157,7 @@
     transform: translateY(-50%);
     transition: all 0.3s;
 
-    & li {
+    & li > button {
       display: block;
       font-size: inherit;
       font-family: inherit;
@@ -189,6 +189,7 @@
   }
 
   & .selected {
+    min-width: 10.3em;
     position: relative;
     font-style: normal;
     font-weight: normal;
