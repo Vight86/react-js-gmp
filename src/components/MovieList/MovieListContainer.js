@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import MovieList from './MovieList';
 import Modal from '../Modal/Modal';
-import { loadMovies } from '../../store/moviesSlice';
+import { decreaseTotalAmount, loadMovies } from '../../store/moviesSlice';
 import { updateFilterOptions, updateSortOptions } from '../../store/requestSlice';
 
 const MovieListContainer = ({ openMoviePopup, openMovieInfo }) => {
@@ -14,7 +14,7 @@ const MovieListContainer = ({ openMoviePopup, openMovieInfo }) => {
   const totalAmount = useSelector((state) => state.movies.totalAmount);
 
   useEffect(() => {
-    const url = requestUrl + new URLSearchParams(requestOptions);
+    const url = `${requestUrl}?${new URLSearchParams(requestOptions)}`;
     dispatch(loadMovies(url));
   }, [requestUrl, requestOptions]);
 
@@ -51,22 +51,45 @@ const MovieListContainer = ({ openMoviePopup, openMovieInfo }) => {
 
   const genres = ['All', 'Documentary', 'Comedy', 'Horror', 'Crime'];
 
-  const [isModalOpened, setIsModalOpened] = useState(false);
+  const isModalOpened = useRef(false); // ???????? state does not update between fetch.then
+  // const [isModalOpened, setIsModalOpened] = useState(false);
   const [modalTitle, setModalTitle] = useState(null);
   const [modalText, setModalText] = useState(null);
   const [isModalCentered, setIsModalCentered] = useState(false);
+  const [isModalSuccess, setIsModalSuccess] = useState(false);
+  const [movieIdToDel, setMovieIdToDel] = useState(null);
 
-  const openModal = (title, text, isCentered) => {
+  const openModal = (title, text, isCentered, isSuccess) => {
     document.body.style.overflow = 'hidden';
-    setIsModalOpened(!isModalOpened);
+    isModalOpened.current = !isModalOpened.current;
     setModalTitle(title);
     setModalText(text);
     setIsModalCentered(isCentered);
+    setIsModalSuccess(isSuccess);
   };
 
   const closeModal = () => {
     document.body.style.overflow = '';
-    setIsModalOpened(!isModalOpened);
+    isModalOpened.current = !isModalOpened.current;
+    // setIsModalOpened(!isModalOpened);
+  };
+
+  const handleConfirmDeleteMovie = () => {
+    const url = `${requestUrl}/${movieIdToDel}`;
+    fetch(url, {
+      method: 'DELETE',
+    }).then(() => {
+      closeModal();
+    }).then(() => {
+      // setIsModalOpened(false);
+      openModal('Movie deleted', 'Movie deleted successfully', true, true);
+      decreaseTotalAmount(1);
+    });
+  };
+
+  const handleDeleteMovie = (id) => {
+    setMovieIdToDel(id);
+    openModal('Delete movie', 'Are you sure you want to delete this movie?', false, false);
   };
 
   return (
@@ -81,13 +104,16 @@ const MovieListContainer = ({ openMoviePopup, openMovieInfo }) => {
         filterMoviesBy={filterMovies}
         sortByQuery={sortByQuery}
         selectButtonTitle={selectButtonTitle}
+        onDeleteMovie={handleDeleteMovie}
       />
-      {isModalOpened && (
+      {isModalOpened.current && (
       <Modal
         title={modalTitle}
         isCentered={isModalCentered}
+        isSuccess={isModalSuccess}
         text={modalText}
         closeModal={closeModal}
+        onConfirmDeleteMovie={handleConfirmDeleteMovie}
       />
       )}
     </>
@@ -99,5 +125,7 @@ MovieListContainer.propTypes = {
   openMoviePopup: PropTypes.func.isRequired,
   openMovieInfo: PropTypes.func.isRequired,
 };
+
+MovieListContainer.displayName = 'MovieListContainer';
 
 export default MovieListContainer;

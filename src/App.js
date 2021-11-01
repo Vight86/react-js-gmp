@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import MovieListContainer from './components/MovieList/MovieListContainer';
-import MoviePopup from './components/MoviePopup/MoviePopup';
+import MoviePopupContainer from './components/MoviePopup/MoviePopupContainer';
 import MovieInfo from './components/MovieInfo/MovieInfo';
 
 const App = () => {
@@ -51,7 +51,7 @@ const App = () => {
       />
       <Footer />
       {isMoviePopupOpened && (
-      <MoviePopup
+      <MoviePopupContainer
         title={title}
         movieInfo={movieInfo}
         closeMoviePopup={closeMoviePopup}

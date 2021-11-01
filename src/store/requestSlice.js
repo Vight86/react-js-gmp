@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const requestSlice = createSlice({
   name: 'requestSlice',
   initialState: {
-    url: 'http://localhost:4000/movies?',
+    url: 'http://localhost:4000/movies',
     options: {
       limit: 6,
       sortOrder: 'desc',

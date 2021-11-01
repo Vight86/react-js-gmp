@@ -11,10 +11,8 @@
   line-height: 2.9em;
   border-radius: .2em;
   transition: all .3s;
+  cursor: pointer;
 
-  &:hover {
-    cursor: pointer;
-  }
 }
 
 .primary {

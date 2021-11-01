@@ -42,14 +42,11 @@
   }
 
   &_withLabel {
+    position: relative;
     input {
       margin-top: 0.7em;
     }
   }
-
-
-
-
 }
 
 .error {
@@ -57,7 +54,7 @@
   font-family: inherit;
   font-style: normal;
   font-weight: 400;
-  font-size: 1.4em;
+  font-size: 0.85em;
   color: variables.$color-primary;
   opacity: 0.8;
   bottom: -1.7em;

@@ -14,6 +14,7 @@ const MovieList = ({
   filterMoviesBy,
   sortByQuery,
   selectButtonTitle,
+  onDeleteMovie,
 }) => (
   <main className={s.movieList}>
     <header className={s.movieList__header}>
@@ -53,6 +54,7 @@ const MovieList = ({
           openMoviePopup={openMoviePopup}
           openModal={openModal}
           openMovieInfo={openMovieInfo}
+          onDeleteMovie={onDeleteMovie}
         />
       ))}
     </div>
@@ -69,5 +71,6 @@ MovieList.propTypes = {
   filterMoviesBy: PropTypes.func.isRequired,
   sortByQuery: PropTypes.func.isRequired,
   selectButtonTitle: PropTypes.string.isRequired,
+  onDeleteMovie: PropTypes.func.isRequired,
 };
 export default MovieList;

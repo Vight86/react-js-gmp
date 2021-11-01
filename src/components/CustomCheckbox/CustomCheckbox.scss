@@ -11,6 +11,9 @@
     font-family: inherit;
     color: variables.$color-fivefold;
     cursor: pointer;
+    padding-bottom: 0.25em;
+    padding-top: 0.25em;
+    padding-left: 1em;
 
     &::before {
       content: '';

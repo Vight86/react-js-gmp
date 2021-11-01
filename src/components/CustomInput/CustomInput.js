@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import s from './CustomInput.scss';
 
 const CustomInput = ({
-  type, value, handleChange, label, placeholder, theme, errorMessage,
+  type, name, value, handleChange, label, placeholder, theme, errorMessage,
 }) => {
   const changeType = (e) => {
     e.target.type = 'date';
@@ -21,6 +21,7 @@ const CustomInput = ({
       {isDate
         ? (
           <input
+            name={name}
             placeholder="Select date"
             type="text"
             onFocus={changeType}
@@ -28,6 +29,7 @@ const CustomInput = ({
         )
         : (
           <input
+            name={name}
             type={type}
             value={value}
             placeholder={placeholder}
@@ -41,9 +43,10 @@ const CustomInput = ({
 };
 
 CustomInput.propTypes = {
+  name: PropTypes.string,
   label: PropTypes.string,
-  value: PropTypes.oneOf([PropTypes.string, PropTypes.number, PropTypes.date]).isRequired,
-  handleChange: PropTypes.func.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.date]).isRequired,
+  handleChange: PropTypes.func,
   type: PropTypes.oneOf(['text', 'password', 'email', 'url', 'date', 'number']).isRequired,
   placeholder: PropTypes.string,
   theme: PropTypes.string.isRequired,
@@ -51,9 +54,11 @@ CustomInput.propTypes = {
 };
 
 CustomInput.defaultProps = {
+  name: '',
   label: '',
   placeholder: '',
   errorMessage: '',
+  handleChange: () => {},
 };
 
 export default CustomInput;

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import s from './SelecetButton.scss';
 
 const SelectButton = ({
-  theme, label, placeholder, children,
+  theme, label, value, placeholder, children,
 }) => {
   const [isActive, setIsActive] = useState(false);
 
@@ -19,22 +19,26 @@ const SelectButton = ({
   return (
     <span className={`${s[theme]}`}>
       <span className={s.label}>{label}</span>
-      <button
-        type="button"
-        className={buttonClasses}
-        onClick={handleClick}
-      >
-        {placeholder}
-        <span className={s.arrow} />
+      <span className={s.wrapper}>
+        <button
+          type="button"
+          className={buttonClasses}
+          onClick={handleClick}
+        >
+          {value || placeholder}
+          <span className={s.arrow} />
+        </button>
         <ul className={s.options}>
           {React.Children.map(children, (option) => <li>{option}</li>)}
         </ul>
-      </button>
+      </span>
+
     </span>
   );
 };
 
 SelectButton.propTypes = {
+  value: PropTypes.string,
   theme: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
@@ -42,6 +46,7 @@ SelectButton.propTypes = {
 };
 
 SelectButton.defaultProps = {
+  value: '',
   theme: 'primary',
   label: '',
   placeholder: '',

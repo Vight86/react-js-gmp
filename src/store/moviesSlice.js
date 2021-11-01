@@ -14,12 +14,20 @@ export const moviesSlice = createSlice({
     addMovies: (state, action) => {
       state.data.push(...action.payload.data);
     },
+    increaseTotalAmount: (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.totalAmount += action.payload;
+    },
+    decreaseTotalAmount: (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.totalAmount -= action.payload;
+    },
   },
   extraReducers: {
     [loadMovies.fulfilled]: (state, action) => ({ ...action.payload }),
   },
 });
 
-export const { addMovies } = moviesSlice.actions;
+export const { addMovies, increaseTotalAmount, decreaseTotalAmount } = moviesSlice.actions;
 
 export default moviesSlice.reducer;
