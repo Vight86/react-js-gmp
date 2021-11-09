@@ -8,3 +8,26 @@
   margin-top: 4em;
   column-gap: 1.5em;
 }
+
+.submit{
+  font-family: inherit;
+  font-size: 2em;
+  color: variables.$color-fivefold;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  height: 2.9em;
+  line-height: 2.9em;
+  border-radius: .2em;
+  transition: all .3s;
+  cursor: pointer;
+  background: variables.$color-primary;
+  border: .1em solid transparent;
+  width: 11.5em;
+
+  &:hover {
+    border: .1em solid variables.$color-primary;
+    color: variables.$color-primary;
+    background: variables.$color-tertiary;
+  }
+}

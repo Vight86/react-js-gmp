@@ -28,3 +28,25 @@
     justify-content: space-between;
   }
 }
+
+.navigationButton {
+  font-family: inherit;
+  color: variables.$color-fivefold;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all .3s;
+  cursor: pointer;
+  width: auto;
+  border-radius: 0;
+  font-weight: 500;
+  font-size: 1.6em;
+  line-height: 1.2em;
+  margin-right: 1.9em;
+  padding-top: 1em;
+  padding-bottom: 1.2em;
+  display: inline-block;
+
+  &_active, &:hover {
+    box-shadow: 0 2px variables.$color-primary;
+  }
+}

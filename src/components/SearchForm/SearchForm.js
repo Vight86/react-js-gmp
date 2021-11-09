@@ -1,40 +1,31 @@
 import { useState } from 'react';
-import Button from '../Button/Button';
+import { useRouteMatch } from 'react-router';
+import { Link } from 'react-router-dom';
 import CustomInput from '../CustomInput/CustomInput';
 import s from './SearchForm.scss';
 
-const SearchForm = (props) => {
-  const { handleSearchSubmit } = props;
-
-  const [searchQuery, setSearchQuery] = useState('');
-  const handleChange = (e) => setSearchQuery(e.target.value);
-
-  const handleClick = () => {
-    handleSearchSubmit(searchQuery);
-  };
+const SearchForm = () => {
+  const searchQuery = useRouteMatch('/search/:searchQuery')?.params?.searchQuery ?? '';
+  const [searchQueryInput, setSearchQueryInput] = useState(searchQuery);
+  const handleChange = (e) => setSearchQueryInput(e.target.value);
 
   return (
     <form className={s.searchForm}>
       <CustomInput
         type="text"
-        value={searchQuery}
+        value={searchQueryInput}
         placeholder="What do you want to watch"
         theme="primary"
         handleChange={handleChange}
       />
-      <Button
-        theme="primary"
-        isWide
-        onClick={handleClick}
+      <Link
+        className={s.submit}
+        to={`/search/${searchQueryInput}`}
       >
         Search
-      </Button>
+      </Link>
     </form>
   );
-};
-
-SearchForm.propTypes = {
-  handleSearchSubmit: PropTypes.func.isRequired,
 };
 
 export default SearchForm;

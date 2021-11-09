@@ -1,27 +1,30 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useRouteMatch } from 'react-router';
 import MovieList from './MovieList';
 import Modal from '../Modal/Modal';
 import { decreaseTotalAmount, loadMovies } from '../../store/moviesSlice';
-import { updateFilterOptions, updateSortOptions } from '../../store/requestSlice';
+import { updateSortOptions } from '../../store/requestSlice';
 
 const MovieListContainer = ({ openMoviePopup, openMovieInfo }) => {
   const dispatch = useDispatch();
-  const requestUrl = useSelector((state) => state.request.url);
-  const requestOptions = useSelector((state) => state.request.options);
+  const { url: requestUrl, options } = useSelector((state) => state.request);
+  const search = useRouteMatch('/search/:searchQuery')?.params?.searchQuery ?? '';
+  const { data: movies, totalAmount } = useSelector((state) => state.movies);
 
-  const movies = useSelector((state) => state.movies.data);
-  const totalAmount = useSelector((state) => state.movies.totalAmount);
+  const { pathname } = useLocation();
 
   useEffect(() => {
+    const requestOptions = {
+      ...options, search, searchBy: 'title', filter: pathname.slice(1),
+    };
     const url = `${requestUrl}?${new URLSearchParams(requestOptions)}`;
     dispatch(loadMovies(url));
-  }, [requestUrl, requestOptions]);
+  }, [requestUrl, search, options, pathname]);
 
-  const filterMovies = (localGenre) => {
-    const genre = localGenre === 'All' ? '' : localGenre;
-    dispatch(updateFilterOptions({ options: { genre } }));
-  };
+  // /  const filterMovies = () => {
+  //     console.log(pathname);
+  //   };
 
   const [selectButtonTitle, setSelectButtonTitle] = useState('Release date');
   const prevSortOrder = useSelector((state) => state.request.options.sortOrder);
@@ -51,8 +54,7 @@ const MovieListContainer = ({ openMoviePopup, openMovieInfo }) => {
 
   const genres = ['All', 'Documentary', 'Comedy', 'Horror', 'Crime'];
 
-  const isModalOpened = useRef(false); // ???????? state does not update between fetch.then
-  // const [isModalOpened, setIsModalOpened] = useState(false);
+  const isModalOpened = useRef(false);
   const [modalTitle, setModalTitle] = useState(null);
   const [modalText, setModalText] = useState(null);
   const [isModalCentered, setIsModalCentered] = useState(false);
@@ -71,7 +73,6 @@ const MovieListContainer = ({ openMoviePopup, openMovieInfo }) => {
   const closeModal = () => {
     document.body.style.overflow = '';
     isModalOpened.current = !isModalOpened.current;
-    // setIsModalOpened(!isModalOpened);
   };
 
   const handleConfirmDeleteMovie = () => {
@@ -81,7 +82,6 @@ const MovieListContainer = ({ openMoviePopup, openMovieInfo }) => {
     }).then(() => {
       closeModal();
     }).then(() => {
-      // setIsModalOpened(false);
       openModal('Movie deleted', 'Movie deleted successfully', true, true);
       decreaseTotalAmount(1);
     });
@@ -101,7 +101,6 @@ const MovieListContainer = ({ openMoviePopup, openMovieInfo }) => {
         openMoviePopup={openMoviePopup}
         openModal={openModal}
         openMovieInfo={openMovieInfo}
-        filterMoviesBy={filterMovies}
         sortByQuery={sortByQuery}
         selectButtonTitle={selectButtonTitle}
         onDeleteMovie={handleDeleteMovie}

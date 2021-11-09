@@ -7,6 +7,7 @@ module.exports = {
     client: {
       overlay: false,
     },
+    historyApiFallback: true,
   },
   optimization: {
     minimize: true,

@@ -1,6 +1,6 @@
+import { NavLink } from 'react-router-dom';
 import s from './MovieList.scss';
 import MovieCard from '../MovieCard/MovieCard';
-import Button from '../Button/Button';
 import SelectButton from '../SelectButton/SelectButton';
 import Counter from '../Counter/Counter';
 
@@ -11,7 +11,6 @@ const MovieList = ({
   openMoviePopup,
   openModal,
   openMovieInfo,
-  filterMoviesBy,
   sortByQuery,
   selectButtonTitle,
   onDeleteMovie,
@@ -20,14 +19,14 @@ const MovieList = ({
     <header className={s.movieList__header}>
       <nav>
         {genres.map((genre) => (
-          <Button
+          <NavLink
             key={genre}
-            theme="navigation"
-            isWide={false}
-            onClick={() => filterMoviesBy(genre)}
+            to={`/${genre.toLowerCase()}`}
+            className={s.navigationButton}
+            activeClassName={s.navigationButton_active}
           >
             {genre}
-          </Button>
+          </NavLink>
         ))}
       </nav>
       <SelectButton
@@ -68,7 +67,6 @@ MovieList.propTypes = {
   openMoviePopup: PropTypes.func.isRequired,
   openModal: PropTypes.func.isRequired,
   openMovieInfo: PropTypes.func.isRequired,
-  filterMoviesBy: PropTypes.func.isRequired,
   sortByQuery: PropTypes.func.isRequired,
   selectButtonTitle: PropTypes.string.isRequired,
   onDeleteMovie: PropTypes.func.isRequired,
