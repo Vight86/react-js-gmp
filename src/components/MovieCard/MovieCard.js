@@ -4,7 +4,7 @@ import { useState } from 'react';
 import s from './MovieCard.scss';
 
 const MovieCard = ({
-  movie, openMoviePopup, openModal, openMovieInfo,
+  movie, openMoviePopup, openMovieInfo, onDeleteMovie,
 }) => {
   const [isSubMenuOpened, setIsSubmenuOpened] = useState(false);
   const openSubMenu = () => setIsSubmenuOpened(!isSubMenuOpened);
@@ -20,7 +20,7 @@ const MovieCard = ({
   });
 
   const {
-    title, release_date, poster_path, genres,
+    id, title, release_date, poster_path, genres,
   } = movie;
 
   const handleEditMovieButtonClick = () => {
@@ -28,7 +28,7 @@ const MovieCard = ({
   };
 
   const handleDeleteMovieButtonClick = () => {
-    openModal('Delete movie', 'Are you sure you want to delete this movie?', false);
+    onDeleteMovie(id);
   };
 
   const handleMovieTitleClick = () => {
@@ -82,8 +82,13 @@ const MovieCard = ({
 MovieCard.propTypes = {
   movie: PropTypes.objectOf(PropTypes.any).isRequired,
   openMoviePopup: PropTypes.func.isRequired,
-  openModal: PropTypes.func.isRequired,
+  id: PropTypes.string,
   openMovieInfo: PropTypes.func.isRequired,
+  onDeleteMovie: PropTypes.func.isRequired,
+};
+
+MovieCard.defaultProps = {
+  id: '',
 };
 
 export default MovieCard;

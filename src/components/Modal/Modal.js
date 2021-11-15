@@ -5,7 +5,7 @@ import PopupWrapper from '../PopupWrapper/PopupWrapper';
 import Button from '../Button/Button';
 
 const Modal = ({
-  title, text, isSuccess, isCentered, closeModal,
+  title, text, isSuccess, isCentered, closeModal, onConfirmDeleteMovie,
 }) => {
   const modalClasses = classNames({
     [s.modal]: true,
@@ -27,7 +27,7 @@ const Modal = ({
           <Button
             theme="primary"
             isWide={false}
-            onClick={() => {}}
+            onClick={onConfirmDeleteMovie}
           >
             Confirm
           </Button>
@@ -45,6 +45,7 @@ Modal.propTypes = {
   isCentered: PropTypes.bool,
   isSuccess: PropTypes.bool,
   closeModal: PropTypes.func.isRequired,
+  onConfirmDeleteMovie: PropTypes.func.isRequired,
 };
 
 Modal.defaultProps = {

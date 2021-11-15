@@ -11,10 +11,7 @@
   line-height: 2.9em;
   border-radius: .2em;
   transition: all .3s;
-
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 }
 
 .primary {
@@ -62,21 +59,6 @@
 .wide {
   @extend .button;
   width: 11.5em;
-}
-
-.navigation {
-  @extend .button;
-  width: auto;
-  border-radius: 0;
-  font-weight: 500;
-  font-size: 1.6em;
-  line-height: 1.2em;
-  margin-right: 1.9em;
-  padding-bottom: 0.2em;
-
-  &_active, &:hover {
-    box-shadow: 0 2px variables.$color-primary;
-  }
 }
 
 .search {

@@ -1,6 +1,7 @@
 @use '../../scss/variables';
 
 .textAreaLabel {
+  position: relative;
   font-family: inherit;
   width: 100%;
   font-style: normal;
@@ -31,4 +32,15 @@
   &:focus {
     border: 0.125em solid variables.$color-primary;
   }
+}
+
+.error {
+  position: relative;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.85em;
+  color: variables.$color-primary;
+  opacity: 0.8;
+  left: 0;
 }

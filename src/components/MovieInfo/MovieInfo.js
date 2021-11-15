@@ -51,7 +51,7 @@ MovieInfo.propTypes = {
     vote_average: PropTypes.number,
     genres: PropTypes.arrayOf(PropTypes.string),
     release_date: PropTypes.string,
-    runtime: PropTypes.string,
+    runtime: PropTypes.number,
     overview: PropTypes.string,
   }),
   closeMovieInfo: PropTypes.func.isRequired,

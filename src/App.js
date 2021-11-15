@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import { Route } from 'react-router';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import MovieListContainer from './components/MovieList/MovieListContainer';
-import MoviePopup from './components/MoviePopup/MoviePopup';
+import MoviePopupContainer from './components/MoviePopup/MoviePopupContainer';
 import MovieInfo from './components/MovieInfo/MovieInfo';
 
 const App = () => {
@@ -35,28 +36,30 @@ const App = () => {
 
   return (
     <>
-      {isMovieInfoShown ? (
-        <MovieInfo
-          movieInfo={movieInfo}
-          closeMovieInfo={closeMovieInfo}
-        />
-      ) : (
-        <Header
+      <Route path="/">
+        {isMovieInfoShown ? (
+          <MovieInfo
+            movieInfo={movieInfo}
+            closeMovieInfo={closeMovieInfo}
+          />
+        ) : (
+          <Header
+            openMoviePopup={openMoviePopup}
+          />
+        )}
+        <MovieListContainer
           openMoviePopup={openMoviePopup}
+          openMovieInfo={openMovieInfo}
         />
-      )}
-      <MovieListContainer
-        openMoviePopup={openMoviePopup}
-        openMovieInfo={openMovieInfo}
-      />
-      <Footer />
-      {isMoviePopupOpened && (
-      <MoviePopup
-        title={title}
-        movieInfo={movieInfo}
-        closeMoviePopup={closeMoviePopup}
-      />
-      )}
+        <Footer />
+        {isMoviePopupOpened && (
+          <MoviePopupContainer
+            title={title}
+            movieInfo={movieInfo}
+            closeMoviePopup={closeMoviePopup}
+          />
+        )}
+      </Route>
     </>
   );
 };
