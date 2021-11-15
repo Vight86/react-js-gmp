@@ -22,10 +22,6 @@ const MovieListContainer = ({ openMoviePopup, openMovieInfo }) => {
     dispatch(loadMovies(url));
   }, [requestUrl, search, options, pathname]);
 
-  // /  const filterMovies = () => {
-  //     console.log(pathname);
-  //   };
-
   const [selectButtonTitle, setSelectButtonTitle] = useState('Release date');
   const prevSortOrder = useSelector((state) => state.request.options.sortOrder);
   const sortByQuery = (query) => {

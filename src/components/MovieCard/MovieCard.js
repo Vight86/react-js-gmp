@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import classNames from 'classnames';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import s from './MovieCard.scss';
 
 const MovieCard = ({

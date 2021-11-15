@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieInfo should render movie info 1`] = `"<header class=\\"movieInfoHeader\\"><div class=\\"headerTop\\"><a href=\\"/\\"><img src=\\"[object Object]\\" title=\\"netflix roulette\\" alt=\\"netflix roulette logo\\"></a><button type=\\"button\\" class=\\"search normal\\"></button></div><div class=\\"movieInfo\\"><figure class=\\"poster\\"><img src=\\"localhost\\" alt=\\"test title\\"></figure><h1 class=\\"primary\\">test title</h1><div class=\\"rating\\">9</div><div class=\\"genre\\">crime, drama</div><div class=\\"year\\">1999</div><div class=\\"time\\">2h 0min</div><p class=\\"description\\">Test overview</p></div></header>"`;
