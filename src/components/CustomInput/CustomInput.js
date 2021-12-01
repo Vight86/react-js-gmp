@@ -1,4 +1,6 @@
 import classNames from 'classnames';
+import React from 'react';
+import PropTypes from 'prop-types';
 import s from './CustomInput.scss';
 
 const CustomInput = ({
@@ -45,7 +47,7 @@ const CustomInput = ({
 CustomInput.propTypes = {
   name: PropTypes.string,
   label: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.date]).isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   handleChange: PropTypes.func,
   type: PropTypes.oneOf(['text', 'password', 'email', 'url', 'date', 'number']).isRequired,
   placeholder: PropTypes.string,

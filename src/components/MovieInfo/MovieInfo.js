@@ -1,4 +1,6 @@
 /* eslint-disable camelcase */
+import React from 'react';
+import PropTypes from 'prop-types';
 import Logo from '../Logo/Logo';
 import Button from '../Button/Button';
 import Title from '../Title/Title';

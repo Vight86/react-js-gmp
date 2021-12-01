@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomInput render primary theme correctly 1`] = `
+<div>
+  <label
+    class="primary"
+  >
+    
+    <input
+      name=""
+      placeholder=""
+      type="text"
+      value=""
+    />
+    
+  </label>
+</div>
+`;

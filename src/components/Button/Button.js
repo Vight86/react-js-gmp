@@ -1,4 +1,6 @@
 import classNames from 'classnames';
+import React from 'react';
+import PropTypes from 'prop-types';
 import s from './Button.scss';
 
 const Button = ({
