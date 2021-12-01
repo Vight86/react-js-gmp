@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack serve --env mode=development",
     "prod": "webpack --env mode=production",
-    "test": "jest"
+    "test": "jest",
+    "ssr": "node ./server/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,14 +20,17 @@
   },
   "dependencies": {
     "@babel/cli": "^7.16.0",
+    "@babel/register": "^7.16.0",
     "@reduxjs/toolkit": "^1.6.2",
     "autoprefixer": "^10.3.4",
     "babel-jest": "^27.3.1",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.3.1",
+    "express": "^4.17.1",
     "formik": "^2.2.9",
     "history": "^5.1.0",
     "identity-obj-proxy": "^3.0.0",
+    "ignore-styles": "^5.0.1",
     "postcss-autoreset": "^3.0.4",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -35,6 +39,7 @@
     "react-router": "^5.2.1",
     "react-router-dom": "^5.3.0",
     "webpack-merge": "^5.8.0",
+    "webpack-node-externals": "^3.0.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {

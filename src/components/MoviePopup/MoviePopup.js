@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+import React from 'react';
 import CustomForm from '../CustomForm/CustomForm';
 import s from './MoviePopup.scss';
 import Title from '../Title/Title';

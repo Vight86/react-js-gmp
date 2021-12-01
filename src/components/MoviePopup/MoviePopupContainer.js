@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+import React from 'react';
 import MoviePopup from './MoviePopup';
-
 import { increaseTotalAmount } from '../../store/moviesSlice';
 
 const MoviePopupContainer = (props) => {

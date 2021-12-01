@@ -7,7 +7,7 @@ import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import styles from './index.scss';
 import store from './store/store';
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <React.StrictMode>
     <Provider store={store}>
       <ErrorBoundary>

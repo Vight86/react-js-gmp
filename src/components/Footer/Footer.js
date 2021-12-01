@@ -1,3 +1,4 @@
+import React from 'react';
 import Logo from '../Logo/Logo';
 import s from './Footer.scss';
 

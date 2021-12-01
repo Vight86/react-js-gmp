@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useRouteMatch } from 'react-router';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import Modal from '../Modal/Modal';
 import { decreaseTotalAmount, loadMovies } from '../../store/moviesSlice';

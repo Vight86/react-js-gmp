@@ -1,6 +1,8 @@
 /* eslint-disable camelcase */
 import { isNaN, useFormik } from 'formik';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
+import React from 'react';
 import CustomTextArea from '../CustomTexArea/CustomTextArea';
 import s from './CustomForm.scss';
 import Button from '../Button/Button';

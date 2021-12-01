@@ -1,4 +1,6 @@
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import React from 'react';
 import s from './MovieList.scss';
 import MovieCard from '../MovieCard/MovieCard';
 import SelectButton from '../SelectButton/SelectButton';

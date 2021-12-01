@@ -1,4 +1,6 @@
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 import s from './Modal.scss';
 import Title from '../Title/Title';
 import PopupWrapper from '../PopupWrapper/PopupWrapper';

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+import React from 'react';
 import s from './Header.scss';
 import Logo from '../Logo/Logo';
 import Button from '../Button/Button';
